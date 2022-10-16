@@ -292,7 +292,7 @@ jobs:
 
 
 
-
+no github, en actions podemos ver o deploy sendo feito
 
 ### Tecnologías utilizadas
 
