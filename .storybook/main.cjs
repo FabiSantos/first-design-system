@@ -15,4 +15,12 @@ module.exports = {
   "features": {
     "storyStoreV7": true
   }
+
+  /* isso é necessario caso seja publicado dentro de uma organizaçao, mostrar que nao é uma pasta, é dominio raiz  */
+ /*  viteFinal:(config, { configType}) =>{
+    if(configType=== 'PRODUCTION'){
+      config.base = '/design-system' 
+    }
+    return config
+  } */
 }

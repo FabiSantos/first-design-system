@@ -182,11 +182,117 @@ npm install @radix-ui/react-checkbox
 (https://www.npmjs.com/package/@storybook/storybook-deployer)
 
 
+git init para vincular com o ghpages
+
+colocar no arquivo package.json nos scripts:
+
+**"deploy-storybook": "storybook-to-ghpages"**
+
+
 na terminal executa o cmd npm run build-storybook
 
 cria uma pasta chamada storybook-static, que é o bundle da aplicaçao
 
-colocar   storybook-static no gitignore
+colocar   storybook-static no .gitignore
+
+
+instalar o cli github, para acceder ao github desde a terminal
+
+**brew install gh**(uma vez no computador)
+
+depois seguir os passos:
+
+
+
+
+fabiane@C02FP2F5ML7H design-system % gh auth login
+? What account do you want to log into? GitHub.com
+? What is your preferred protocol for Git operations? HTTPS
+? Authenticate Git with your GitHub credentials? Yes
+? How would you like to authenticate GitHub CLI? Login with a web browser
+
+! First copy your one-time code: B907-D8F4
+Press Enter to open github.com in your browser... 
+✓ Authentication complete.
+- gh config set -h github.com git_protocol https
+✓ Configured git protocol
+✓ Logged in as FabiSantos
+fabiane@C02FP2F5ML7H design-system % **gh repo create**
+? What would you like to do? Push an existing local repository to GitHub
+? Path to local repository .
+? Repository name first-design-system
+? Description Primeiro projeto de design system com storybook
+? Visibility Public
+✓ Created repository FabiSantos/first-design-system on GitHub
+? Add a remote? Yes
+? What should the new remote be called? origin
+✓ Added remote https://github.com/FabiSantos/first-design-system.git
+fabiane@C02FP2F5ML7H design-system % git add .     
+fabiane@C02FP2F5ML7H design-system % git commit -m "initial commit"
+
+fabiane@C02FP2F5ML7H design-system % git push origin main
+Enumerating objects: 42, done.
+Counting objects: 100% (42/42), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (34/34), done.
+Writing objects: 100% (42/42), 539.01 KiB | 3.79 MiB/s, done.
+Total 42 (delta 5), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (5/5), done.
+To https://github.com/FabiSantos/first-design-system.git
+ * [new branch]      main -> main
+fabiane@C02FP2F5ML7H design-system % **gh repo view -w** para abrir na web
+Opening github.com/FabiSantos/first-design-system in your browser.
+
+
+integraçao continua: dispara açoes cada vez que tem uma modificaçao no codigo
+*ci/ cd*
+
+toda vez que eu envie uma nova versao do meu codigo para o github, ele publique gh-pages
+
+entrega continua deploy se auto atualiza
+
+
+- criar pasta.github/workflows/deploydocs.yml
+- 
+
+
+
+
+- na pasta deploy-doc.yml:
+- 
+
+name: Deploy Storybook
+
+//qdo quero executar workflow: toda vez que houver um push em main
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+
+//primer comando  - baixa a versao atualizada do nosso codigo
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+        // Instala la version de node no nosso ambiente
+
+        // npm ci é igual npm i, para ambientes nao interativos, instala as dependencias do projecto, mas nao atualiza o packaje
+
+        // comando build para atualizar storybook
+
+        //deploy da build do storybook --ci para nao pedir confirmacao nenhuma
+
+
+        //token do github automatica
+
+
+
+
 
 ### Tecnologías utilizadas
 
